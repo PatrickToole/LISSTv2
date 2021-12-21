@@ -1,5 +1,6 @@
 rawdata/*.xlsx
 rawdata/*.csv
+processed_data
 
 !.gitignore
 !DailyLog.xlsx
