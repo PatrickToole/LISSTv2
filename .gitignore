@@ -1,0 +1,6 @@
+rawdata/*.xlsx
+rawdata/*.csv
+
+!.gitignore
+!DailyLog.xlsx
+!WT-2018-35 2056.csv
