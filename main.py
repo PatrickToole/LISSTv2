@@ -82,7 +82,11 @@ df['TPC'] = df.iloc[:, 0:36].sum(axis=1)
 #     print('%d:%02d' % (mins, secs))
 
 # save exp_window as csv
-exp_window.to_csv(f'processed_data//clipped {file_name}', index=False, header=True)
+new_dir = f'processed_data//{exp_name}'
+dir_exist = os.path.exists(new_dir)
+if not dir_exist:
+    os.mkdir(new_dir)
+exp_window.to_csv(f'processed_data//{exp_name}//clipped {file_name}', index=False, header=True)
 
 # ##Contour Plot
 # bin size median value taken from LISST-200x manual
@@ -224,16 +228,16 @@ def plt_save():  # make this actually save
     if var1.get() == 1:
         plt.clf()
         cont_zcons_plot(entr3.get(), entr2.get())
-        plt.savefig(f'processed_data//{exp_name} Contour Plot Z constrained')
+        plt.savefig(f'{new_dir}//{exp_name} Contour Plot Z constrained')
     if var2.get() == 1:
         tpc_plot()
-        plt.savefig(f'processed_data//{exp_name} TPC Plot.')
+        plt.savefig(f'{new_dir}//{exp_name} TPC Plot.')
     if var3.get() == 1:
         tpc_mean_plot(entr1.get())
-        plt.savefig(f'processed_data//{exp_name} TPC Mean Plot')
+        plt.savefig(f'{new_dir}//{exp_name} TPC Mean Plot')
     if var4.get() == 1:
         psd_plot()
-        plt.savefig(f'processed_data//{exp_name} PSD Plot')
+        plt.savefig(f'{new_dir}//{exp_name} PSD Plot')
     
 
 
