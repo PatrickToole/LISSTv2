@@ -23,6 +23,7 @@ file_name = exp_name
 exp_name = exp_name.rstrip('2056.csv')
 exp_name = exp_name.rstrip('2057.csv')
 exp_name = exp_name.strip()
+lisst_num = file_name.rstrip('.csv').lstrip(f'{exp_name}').strip()
 
 start_time = df2.loc[f'{exp_name}']['Oil Release Time']
 
@@ -228,16 +229,16 @@ def plt_save():  # make this actually save
     if var1.get() == 1:
         plt.clf()
         cont_zcons_plot(entr3.get(), entr2.get())
-        plt.savefig(f'{new_dir}//{exp_name} Contour Plot Z constrained')
+        plt.savefig(f'{new_dir}//{exp_name} Contour Plot Z constrained {lisst_num}')
     if var2.get() == 1:
         tpc_plot()
-        plt.savefig(f'{new_dir}//{exp_name} TPC Plot.')
+        plt.savefig(f'{new_dir}//{exp_name} TPC Plot {lisst_num}')
     if var3.get() == 1:
         tpc_mean_plot(entr1.get())
-        plt.savefig(f'{new_dir}//{exp_name} TPC Mean Plot')
+        plt.savefig(f'{new_dir}//{exp_name} TPC Mean Plot {lisst_num}')
     if var4.get() == 1:
         psd_plot()
-        plt.savefig(f'{new_dir}//{exp_name} PSD Plot')
+        plt.savefig(f'{new_dir}//{exp_name} PSD Plot {lisst_num}')
     
 
 
