@@ -239,6 +239,7 @@ def plt_save():  # make this actually save
     if var4.get() == 1:
         psd_plot()
         plt.savefig(f'{new_dir}//{exp_name} PSD Plot {lisst_num}')
+    master.quit()
     
 
 
