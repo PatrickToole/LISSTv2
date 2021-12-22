@@ -144,7 +144,7 @@ def cont_zcons_plot(plt_color, zcons=1):
 
     # Need to try and have this be more blended
 
-    plt.title(f'{exp_name} Contour Plot Z Constrained')
+    plt.title(f'{exp_name} Contour Plot Z Constrained {lisst_num}')
     plt.xlabel('time (minutes)')
     plt.ylabel('Particle Size (microns)')
     # plt.show()
@@ -158,7 +158,7 @@ def tpc_plot():
     y = df['TPC']
     plt.figure(2)
     plt.scatter(x, y, marker='o', color='black', s=10)
-    plt.title(f'{exp_name} Total Particle Concentration')
+    plt.title(f'{exp_name} Total Particle Concentration {lisst_num}')
     plt.ylabel(r'Particle Concentration ($\mu$L/L)')
     plt.xlabel('Time (minutes)')
     # plt.show()
@@ -173,9 +173,9 @@ def tpc_mean_plot(num_samp_roll=4):
     plt.scatter(x, y, marker='o', color='black', s=10)
 
     if num_samp_roll == 1:
-        plt.title(f'{exp_name} Total Particle Concentration')
+        plt.title(f'{exp_name} Total Particle Concentration {lisst_num}')
     else:
-        plt.title(f'{exp_name} Mean Total Particle Concentration({num_samp_roll} samples)')
+        plt.title(f'{exp_name} Mean Total Particle Concentration({num_samp_roll} samples) {lisst_num}')
 
     plt.ylabel(r'Particle Concentration ($\mu$L/L)')
     plt.xlabel('Time (minutes)')
@@ -204,7 +204,7 @@ def psd_plot():
     plt.tick_params(axis='x', length=5, which='major')
     plt.xticks(x_pos, bin_size_label)
 
-    plt.title(f'{exp_name} Particle Size Distribution')
+    plt.title(f'{exp_name} Particle Size Distribution {lisst_num}')
     plt.ylabel(r'Particle Concentration ($\mu$L/L)')
     plt.xlabel(r'LISST Particle Size Bins ($\mu$m)')
     # plt.show()
