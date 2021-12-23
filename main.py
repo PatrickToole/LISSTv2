@@ -6,7 +6,7 @@ import os
 import matplotlib.pyplot as plt
 
 # opens window to select file.
-master = Tk()
+master = Tk() 
 master.title('LISST File Selection')
 master.filename = filedialog.askopenfilename(filetypes=(('csv files', '*.csv'), ('All Files', '*.*')))
 master.filename2 = filedialog.askopenfilename(filetypes=(('Excel files', '*.xlsx'), ('All Files', '*.*')))
@@ -121,7 +121,7 @@ def cont_zcons_plot(plt_color, zcons=1):
     plt.tick_params(axis='y', length=5, which='major')
     plt.yticks(bin_size, bin_size_label)
 
-    plt.contourf(x, y, z, 10, cmap=plt_color)
+    plt.contourf(x, y, z, 10, cmap=plt_color) #TODO - set this to a variable option with a handful of preferred colors
     # 'Accent', 'Accent_r', 'Blues', 'Blues_r', 'BrBG', 'BrBG_r', 'BuGn', 'BuGn_r', 'BuPu', 'BuPu_r', 'CMRmap',
     # 'CMRmap_r', 'Dark2', 'Dark2_r', 'GnBu', 'GnBu_r', 'Greens', 'Greens_r', 'Greys', 'Greys_r', 'OrRd', 'OrRd_r',
     # 'Oranges', 'Oranges_r', 'PRGn', 'PRGn_r', 'Paired', 'Paired_r', 'Pastel1', 'Pastel1_r', 'Pastel2', 'Pastel2_r',
@@ -210,8 +210,8 @@ def psd_plot():
     # plt.show()
 
 
-def plt_test():
-    print(var1.get(), var2.get(), var3.get(), var4.get())
+def plt_show():
+    # print(var1.get(), var2.get(), var3.get(), var4.get())
     if var1.get() == 1:
         plt.clf()
         cont_zcons_plot(entr3.get(), entr2.get())
@@ -221,11 +221,12 @@ def plt_test():
         tpc_mean_plot(entr1.get())
     if var4.get() == 1:
         psd_plot()
+    print('showing plots')
     plt.show()
 
 
-def plt_save():  # make this actually save
-    print(var1.get(), var2.get(), var3.get(), var4.get())
+def plt_save():  
+    # print(var1.get(), var2.get(), var3.get(), var4.get())
     if var1.get() == 1:
         plt.clf()
         cont_zcons_plot(entr3.get(), entr2.get())
@@ -239,6 +240,7 @@ def plt_save():  # make this actually save
     if var4.get() == 1:
         psd_plot()
         plt.savefig(f'{new_dir}//{exp_name} PSD Plot {lisst_num}')
+    print('plots saved')
     master.quit()
     
 
@@ -278,6 +280,6 @@ var4 = IntVar()
 var4.set(1)
 psd_box = Checkbutton(master, variable=var4, text='psd').grid(row=10, sticky=W)
 
-show_button = Button(master, text='show', command=plt_test).grid(row=11, sticky=W)
+show_button = Button(master, text='show', command=plt_show).grid(row=11, sticky=W)
 save_button = Button(master, text='save', command=plt_save).grid(row=11, sticky=E)
 master.mainloop()
