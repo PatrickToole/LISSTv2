@@ -1,9 +1,5 @@
-rawdata/*.xlsx
-rawdata/*.csv
+rawdata/*
 processed_data/*
 submitted_data
 
-!.gitignore
-!DailyLog.xlsx
-!WT-2018-35 2056.csv
-!processed_data
+#!.gitignore
