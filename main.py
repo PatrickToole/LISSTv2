@@ -67,6 +67,7 @@ df_max_time = df.loc[(df['Hour'] == (int(h) + 1)) & (df['Minute'] <= int(m))]  #
 
 data = [df_min_time, df_max_time]
 exp_window = pd.concat(data)
+print(len(exp_window)/40)    # allows me to check if clipped files is accurate.aka around experiment length(60 usually)
 
 df = exp_window
 # min elapsed column
@@ -240,7 +241,7 @@ def plt_save():
     if var4.get() == 1:
         psd_plot()
         plt.savefig(f'{new_dir}//{exp_name} PSD Plot {lisst_num}')
-    print('plots saved')
+    print(f'{exp_name} {lisst_num} plots saved')
     master.quit()
     
 
