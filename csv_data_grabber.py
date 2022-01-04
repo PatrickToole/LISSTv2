@@ -1,3 +1,4 @@
+# this grabs all of the csvs from the LISST raw data folders. and places them in the new directory. 
 import os
 import shutil
 import tkinter as tk
