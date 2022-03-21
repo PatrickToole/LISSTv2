@@ -102,11 +102,11 @@ df["date"] = [d.date() for d in df["DateTime"]]
 df["time"] = [d.time() for d in df["DateTime"]]
 
 # splits start_time into hour,min, sec so i can clip data based on those inputs
-_1 = str(start_time)
-new = _1.split(":")
-h = new[0]
-m = new[1]
-s = new[2]
+start_time_string = str(start_time)
+start_time_split = start_time_string.split(":")
+h = start_time_split[0]
+m = start_time_split[1]
+s = start_time_split[2]
 
 # minimum and maximum times aka start and end times   TODO ***** MAKE THE LENGTH OF THE EXPERIMENT A VARIABLE ******
 df_min_time = df.loc[(df["Hour"] == int(h)) & (df["Minute"] >= int(m))]  # start time
